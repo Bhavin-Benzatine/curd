@@ -1,6 +1,7 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 5000;
 
 require("./db/db");
 
@@ -86,6 +87,6 @@ app.get("/blog/:id", auth, async (req, res) => {
   }
 });
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0',() => {
   console.log(`server start on ${port}`);
 });
