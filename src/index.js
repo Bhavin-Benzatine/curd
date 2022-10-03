@@ -11,6 +11,14 @@ const auth = require("./middleware/auth");
 
 app.use(express.json());
 
+app.get("/", async (req, res) => {
+  try {
+    res.status(200).send("Hello World");
+  } catch (err) {
+    res.send(err);
+  }
+});
+
 app.post("/register", async (req, res) => {
   try {
     const addUser = new userSchema(req.body);
